@@ -1,14 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SubmissionError, validateSubmission, type BookPayload } from "@/lib/book-submission";
+import { BOOKS_REPO } from "@/lib/books-repo";
 
 // Agents and humans POST a book here to submit it to the library. With a GitHub
 // token that can write to the repo, the endpoint commits the book straight to
 // the books-submission folder on a branch and opens a pull request; without a
 // token it still validates the payload and returns the exact files to commit,
 // so the caller can finish the submission by hand.
-const OWNER = process.env["BOOKS_REPO_OWNER"] ?? "zyraxon-X";
-const REPO = process.env["BOOKS_REPO_NAME"] ?? "lore-crafter-delight";
-const BASE = process.env["BOOKS_REPO_BRANCH"] ?? "main";
+const OWNER = BOOKS_REPO.owner;
+const REPO = BOOKS_REPO.name;
+const BASE = BOOKS_REPO.branch;
 const FOLDER = "pdf-library";
 
 const json = (body: unknown, status = 200) =>

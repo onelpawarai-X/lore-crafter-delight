@@ -1,13 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { COVER_CANDIDATES, BOOK_FILE_CANDIDATES } from "@/lib/community-parse";
+import { fetchRepoFile } from "@/lib/books-repo";
 
 // Streams a submission's cover, icon, PDF or EPUB from GitHub through our own
 // origin, so the browser never talks to GitHub directly. Only files whose name
 // appears in the allow-lists can be served, which keeps the route from turning
 // into an open proxy for arbitrary repository paths.
-const OWNER = process.env["BOOKS_REPO_OWNER"] ?? "zyraxon-X";
-const REPO = process.env["BOOKS_REPO_NAME"] ?? "lore-crafter-delight";
-const BRANCH = process.env["BOOKS_REPO_BRANCH"] ?? "main";
 const FOLDERS = ["pdf-library", "books-submission"];
 
 const SAFE_SEGMENT = /^[A-Za-z0-9._-]+$/;
@@ -41,11 +39,10 @@ export const Route = createFileRoute("/api/community-file/$slug/$file")({
 
         const isPdf = file.toLowerCase().endsWith(".pdf");
         for (const folder of FOLDERS) {
-          const url = `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${folder}/${slug}/${file}`;
-          const upstream = await fetch(url, { headers: { "User-Agent": "lore-crafter-delight" } });
+          const upstream = await fetchRepoFile(`${folder}/${slug}/${file}`);
           if (!upstream.ok) continue;
           const headers: Record<string, string> = {
-            "content-type": upstream.headers.get("content-type") ?? contentType(file),
+            "content-type": contentType(file),
             "cache-control": "public, max-age=600, stale-while-revalidate=86400",
           };
           if (isPdf) headers["content-disposition"] = `inline; filename="${file}"`;
