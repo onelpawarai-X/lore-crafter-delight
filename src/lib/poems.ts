@@ -18,7 +18,7 @@ const slugFromPath = (path: string) => path.split("/").pop()!.replace(/\.json$/,
 
 export const poems: Poem[] = Object.entries(files)
   .map(([path, poem]) => ({ ...poem, slug: poem.slug ?? slugFromPath(path) }))
-  .sort((a, b) => a.order - b.order);
+  .sort((a, b) => b.order - a.order);
 
 export const findPoem = (slug: string): Poem | undefined =>
   poems.find((poem) => poem.slug === slug);

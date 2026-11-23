@@ -17,7 +17,7 @@ const slugFromPath = (path: string) => path.split("/").pop()!.replace(/\.json$/,
 
 export const captions: Caption[] = Object.entries(files)
   .map(([path, caption]) => ({ ...caption, slug: caption.slug ?? slugFromPath(path) }))
-  .sort((a, b) => a.order - b.order);
+  .sort((a, b) => b.order - a.order);
 
 export const findCaption = (slug: string): Caption | undefined =>
   captions.find((caption) => caption.slug === slug);
