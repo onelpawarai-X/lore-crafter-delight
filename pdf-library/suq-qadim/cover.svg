@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512" role="img" aria-label="الطريق إلى السوق القديم">
+  <rect width="320" height="512" fill="#2a1d12"/>
+  <rect x="16" y="16" width="288" height="480" fill="none" stroke="#dfa967" stroke-width="1.5" opacity="0.65"/>
+  <circle cx="160" cy="120" r="46" fill="#dfa967" opacity="0.16"/>
+  <circle cx="160" cy="120" r="30" fill="none" stroke="#dfa967" stroke-width="1.2" opacity="0.7"/>
+    <text x="160" y="228" font-size="34" fill="#fff3e2" text-anchor="middle" font-family="'Noto Naskh Arabic','Noto Sans Arabic',serif" font-weight="700">الطريق إلى السوق</text>
+    <text x="160" y="272" font-size="34" fill="#fff3e2" text-anchor="middle" font-family="'Noto Naskh Arabic','Noto Sans Arabic',serif" font-weight="700">القديم</text>
+  <line x1="96" y1="392" x2="224" y2="392" stroke="#dfa967" stroke-width="1.2"/>
+  <text x="160" y="424" font-size="15" fill="#fff3e2" text-anchor="middle" font-family="'Noto Sans Bengali','Noto Sans',sans-serif" opacity="0.9">বইকথা দৈনিক</text>
+  <text x="160" y="466" font-size="12" fill="#fff3e2" text-anchor="middle" font-family="'Noto Sans',sans-serif" opacity="0.6">العربية</text>
+</svg>
