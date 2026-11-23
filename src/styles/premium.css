@@ -800,6 +800,7 @@
   font-size: 17px;
   line-height: 1.8;
   color: var(--bk-ink-soft);
+  white-space: pre-line;
 }
 
 .bk-caption footer {
@@ -1087,6 +1088,7 @@
   line-height: 1.6;
   letter-spacing: -0.01em;
   color: var(--bk-ink);
+  white-space: pre-line;
 }
 
 .bk-caption-context {
