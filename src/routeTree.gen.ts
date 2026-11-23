@@ -14,6 +14,10 @@ import { Route as ApiBooksRouteImport } from './routes/api.books'
 import { Route as ApiFetchBookRouteImport } from './routes/api.fetch-book'
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
 import { Route as BooksBookIdRouteImport } from './routes/books/$bookId'
+import { Route as CaptionsIndexRouteImport } from './routes/captions/index'
+import { Route as CaptionsCaptionIdRouteImport } from './routes/captions/$captionId'
+import { Route as PoemsIndexRouteImport } from './routes/poems/index'
+import { Route as PoemsPoemIdRouteImport } from './routes/poems/$poemId'
 import { Route as ApiCommunityFileSlugFileRouteImport } from './routes/api.community-file.$slug.$file'
 
 const IndexRoute = IndexRouteImport.update({
@@ -41,6 +45,26 @@ const BooksBookIdRoute = BooksBookIdRouteImport.update({
   path: '/books/$bookId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CaptionsIndexRoute = CaptionsIndexRouteImport.update({
+  id: '/captions/',
+  path: '/captions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaptionsCaptionIdRoute = CaptionsCaptionIdRouteImport.update({
+  id: '/captions/$captionId',
+  path: '/captions/$captionId',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoemsIndexRoute = PoemsIndexRouteImport.update({
+  id: '/poems/',
+  path: '/poems/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoemsPoemIdRoute = PoemsPoemIdRouteImport.update({
+  id: '/poems/$poemId',
+  path: '/poems/$poemId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiCommunityFileSlugFileRoute =
   ApiCommunityFileSlugFileRouteImport.update({
     id: '/api/community-file/$slug/$file',
@@ -54,6 +78,10 @@ export interface FileRoutesByFullPath {
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/captions/$captionId': typeof CaptionsCaptionIdRoute
+  '/poems/$poemId': typeof PoemsPoemIdRoute
+  '/captions/': typeof CaptionsIndexRoute
+  '/poems/': typeof PoemsIndexRoute
   '/api/community-file/$slug/$file': typeof ApiCommunityFileSlugFileRoute
 }
 export interface FileRoutesByTo {
@@ -62,6 +90,10 @@ export interface FileRoutesByTo {
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/captions/$captionId': typeof CaptionsCaptionIdRoute
+  '/poems/$poemId': typeof PoemsPoemIdRoute
+  '/captions': typeof CaptionsIndexRoute
+  '/poems': typeof PoemsIndexRoute
   '/api/community-file/$slug/$file': typeof ApiCommunityFileSlugFileRoute
 }
 export interface FileRoutesById {
@@ -71,6 +103,10 @@ export interface FileRoutesById {
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/captions/$captionId': typeof CaptionsCaptionIdRoute
+  '/poems/$poemId': typeof PoemsPoemIdRoute
+  '/captions/': typeof CaptionsIndexRoute
+  '/poems/': typeof PoemsIndexRoute
   '/api/community-file/$slug/$file': typeof ApiCommunityFileSlugFileRoute
 }
 export interface FileRouteTypes {
@@ -81,6 +117,10 @@ export interface FileRouteTypes {
     | '/api/fetch-book'
     | '/api/tts'
     | '/books/$bookId'
+    | '/captions/$captionId'
+    | '/poems/$poemId'
+    | '/captions/'
+    | '/poems/'
     | '/api/community-file/$slug/$file'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -89,6 +129,10 @@ export interface FileRouteTypes {
     | '/api/fetch-book'
     | '/api/tts'
     | '/books/$bookId'
+    | '/captions/$captionId'
+    | '/poems/$poemId'
+    | '/captions'
+    | '/poems'
     | '/api/community-file/$slug/$file'
   id:
     | '__root__'
@@ -97,6 +141,10 @@ export interface FileRouteTypes {
     | '/api/fetch-book'
     | '/api/tts'
     | '/books/$bookId'
+    | '/captions/$captionId'
+    | '/poems/$poemId'
+    | '/captions/'
+    | '/poems/'
     | '/api/community-file/$slug/$file'
   fileRoutesById: FileRoutesById
 }
@@ -106,6 +154,10 @@ export interface RootRouteChildren {
   ApiFetchBookRoute: typeof ApiFetchBookRoute
   ApiTtsRoute: typeof ApiTtsRoute
   BooksBookIdRoute: typeof BooksBookIdRoute
+  CaptionsCaptionIdRoute: typeof CaptionsCaptionIdRoute
+  PoemsPoemIdRoute: typeof PoemsPoemIdRoute
+  CaptionsIndexRoute: typeof CaptionsIndexRoute
+  PoemsIndexRoute: typeof PoemsIndexRoute
   ApiCommunityFileSlugFileRoute: typeof ApiCommunityFileSlugFileRoute
 }
 
@@ -146,6 +198,34 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BooksBookIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/captions/': {
+      id: '/captions/'
+      path: '/captions'
+      fullPath: '/captions/'
+      preLoaderRoute: typeof CaptionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/captions/$captionId': {
+      id: '/captions/$captionId'
+      path: '/captions/$captionId'
+      fullPath: '/captions/$captionId'
+      preLoaderRoute: typeof CaptionsCaptionIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poems/': {
+      id: '/poems/'
+      path: '/poems'
+      fullPath: '/poems/'
+      preLoaderRoute: typeof PoemsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/poems/$poemId': {
+      id: '/poems/$poemId'
+      path: '/poems/$poemId'
+      fullPath: '/poems/$poemId'
+      preLoaderRoute: typeof PoemsPoemIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/community-file/$slug/$file': {
       id: '/api/community-file/$slug/$file'
       path: '/api/community-file/$slug/$file'
@@ -162,6 +242,10 @@ const rootRouteChildren: RootRouteChildren = {
   ApiFetchBookRoute: ApiFetchBookRoute,
   ApiTtsRoute: ApiTtsRoute,
   BooksBookIdRoute: BooksBookIdRoute,
+  CaptionsCaptionIdRoute: CaptionsCaptionIdRoute,
+  PoemsPoemIdRoute: PoemsPoemIdRoute,
+  CaptionsIndexRoute: CaptionsIndexRoute,
+  PoemsIndexRoute: PoemsIndexRoute,
   ApiCommunityFileSlugFileRoute: ApiCommunityFileSlugFileRoute,
 }
 export const routeTree = rootRouteImport

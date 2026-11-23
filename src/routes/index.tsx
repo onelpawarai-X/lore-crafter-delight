@@ -1,29 +1,32 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
-import { ArrowRight, BookOpen, Bookmark, Check, Search, Sparkles, Users, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, BookOpen, Search, Sparkles, X } from "lucide-react";
 import { BookCover } from "@/components/book-cover";
-import { LibraryHeader } from "@/components/library-header";
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
 import { genres, type BookSummary } from "@/lib/books";
 import { formatNumber, useLanguage } from "@/lib/i18n";
 import { toBookSummary } from "@/lib/community-to-book";
 import { fetchCommunityBooks } from "@/lib/community-books.server";
 import { bookSummaries } from "@/lib/manuscripts";
 import { bookSlug } from "@/lib/book-slug";
+import { poems } from "@/lib/poems";
+import { captions } from "@/lib/captions";
 
 export const Route = createFileRoute("/")({
   loader: async () => ({ community: await fetchCommunityBooks() }),
   head: () => ({
     meta: [
-      { title: "বইকথা — গল্পের নতুন জগৎ" },
+      { title: "বইকথা — গল্প, কবিতা আর ক্যাপশনের লাইব্রেরি" },
       {
         name: "description",
-        content: "ভূত, প্রেম, রহস্য ও কল্পনার স্বতন্ত্র অধ্যায়ভিত্তিক উপন্যাসের সংগ্রহ।",
+        content:
+          "বাংলা গল্পের বই, ইংরেজি কবিতা আর ছোট ক্যাপশন — এক শান্ত ডিজিটাল লাইব্রেরিতে, প্রতিদিন নতুন সংযোজন।",
       },
-      { property: "og:title", content: "বইকথা — গল্পের ভেতর, নিজের মতো" },
+      { property: "og:title", content: "বইকথা — গল্প, কবিতা আর ক্যাপশনের লাইব্রেরি" },
       {
         property: "og:description",
-        content: "স্বতন্ত্র প্রচ্ছদ ও নিজস্ব আবহে বাংলা উপন্যাস পড়ুন।",
+        content: "গল্প, কবিতা আর ক্যাপশনের তিনটা আলাদা তাক, এক লাইব্রেরিতে।",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -37,8 +40,6 @@ function Index() {
   const { lang, t } = useLanguage();
   const [genre, setGenre] = useState("all");
   const [search, setSearch] = useState("");
-  const [saved, setSaved] = useState<number[]>([]);
-  const [view, setView] = useState("collection");
 
   const communityBooks = useMemo(
     () => community.map((entry, index) => toBookSummary(entry, index)),
@@ -52,7 +53,6 @@ function Index() {
   const visible = books.filter(
     (book) =>
       (genre === "all" || book.genre === genre) &&
-      (view !== "saved" || saved.includes(book.id)) &&
       `${book.title} ${book.subtitle} ${book.genre} ${book.author ?? ""}`
         .toLowerCase()
         .includes(search.trim().toLowerCase()),
@@ -68,7 +68,7 @@ function Index() {
   const navigate = useNavigate();
   const [online, setOnline] = useState<{ query: string; state: "loading" | "error"; message?: string }>();
   const query = search.trim();
-  const shouldFetch = view === "collection" && query.length >= 3 && visible.length === 0;
+  const shouldFetch = query.length >= 3 && visible.length === 0;
   useEffect(() => {
     if (!shouldFetch) {
       setOnline(undefined);
@@ -100,141 +100,131 @@ function Index() {
     };
   }, [shouldFetch, query, navigate]);
 
+  const leadPoem = poems[0];
+  const otherPoems = poems.slice(1, 5);
+  const leadCaptions = captions.slice(0, 3);
+
   return (
-    <>
-      <LibraryHeader />
+    <div className="bk-page">
+      <SiteHeader />
       <main>
-        <section className="intro-band">
-          <div className="ambient ambient-one" aria-hidden="true" />
-          <div className="ambient ambient-two" aria-hidden="true" />
-          <div className="page-width intro-inner">
-            <div className="intro-copy">
-              <div className="eyebrow">
-                <span className="small-line" /> {t("intro.eyebrow")}
-              </div>
+        <section className="bk-hero">
+          <div className="bk-wrap bk-hero-grid">
+            <div>
+              <span className="bk-eyebrow">{t("hero.eyebrow")}</span>
               <h1>
-                বইকথা<span className="intro-title-sub">{t("intro.titleSub")}</span>
+                <span>{t("hero.line1")}</span>
+                <span>{t("hero.line2")}</span>
+                <span>{t("hero.line3")}</span>
               </h1>
-              <p>{t("intro.body")}</p>
-              <Button
-                className="explore-button"
-                onClick={() =>
-                  document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })
-                }
-              >
-                {t("intro.cta")} <ArrowRight />
-              </Button>
-              <div className="intro-facts">
-                <span>
-                  <BookOpen size={15} /> {formatNumber(books.length, lang)}
-                  {t("intro.books")}
-                </span>
-                <span className="fact-dot">·</span>
-                <span>
-                  {formatNumber(genres.length, lang)}
-                  {t("intro.worlds")}
-                </span>
-                <span className="fact-dot">·</span>
-                <span>{t("intro.lang")}</span>
+              <p className="bk-lede">{t("hero.body")}</p>
+              <div className="bk-hero-actions">
+                <a className="bk-btn bk-btn-solid" href="#stories">
+                  {t("hero.readStories")} <ArrowRight />
+                </a>
+                <Link className="bk-btn bk-btn-ghost" to="/poems">
+                  {t("hero.readPoems")} <Sparkles />
+                </Link>
+              </div>
+              <div className="bk-stats">
+                <div>
+                  <strong>{formatNumber(books.length, lang)}</strong>
+                  <span>{t("hero.statBooks")}</span>
+                </div>
+                <div>
+                  <strong>{formatNumber(poems.length, lang)}</strong>
+                  <span>{t("hero.statPoems")}</span>
+                </div>
+                <div>
+                  <strong>{formatNumber(captions.length, lang)}</strong>
+                  <span>{t("hero.statCaptions")}</span>
+                </div>
               </div>
             </div>
-            <div className="featured-books" aria-label="নির্বাচিত বইয়ের প্রচ্ছদ">
-              {featured.map((book, i) => (
-                <Link
-                  key={book.id}
-                  to="/books/$bookId"
-                  params={{ bookId: bookSlug(book) }}
-                  className={`featured-book featured-${i}`}
-                >
-                  <BookCover book={book} priority />
-                </Link>
-              ))}
-              <div className="featured-caption">
-                <Sparkles size={14} /> {t("featured.caption")}
+            <div className="bk-hero-art" aria-label={t("stories.title")}>
+              <div className="bk-hero-frame" aria-hidden="true" />
+              <div className="bk-hero-covers">
+                {featured.map((book) => (
+                  <Link
+                    key={book.id}
+                    to="/books/$bookId"
+                    params={{ bookId: bookSlug(book) }}
+                    className="bk-hero-cover"
+                  >
+                    <BookCover book={book} priority />
+                  </Link>
+                ))}
+              </div>
+              <div className="bk-hero-note">
+                <p>{t("hero.note")}</p>
+                <span>{t("hero.noteBy")}</span>
               </div>
             </div>
           </div>
         </section>
 
-        {communityBooks.length > 0 && (
-          <section className="page-width community-section">
-            <div className="community-head">
-              <div>
-                <div className="eyebrow section-eyebrow">{t("community.eyebrow")}</div>
-                <h2>
-                  {t("community.title")} <span>{formatNumber(communityBooks.length, lang)}</span>
-                </h2>
-              </div>
-              <p>{t("community.body")}</p>
-            </div>
-            <div className="community-grid">
-              {communityBooks.slice(0, 8).map((book) => (
-                <article className="community-card" key={book.id}>
-                  <div className="community-art">
-                    <Link to="/books/$bookId" params={{ bookId: bookSlug(book) }}>
-                      <BookCover book={book} />
-                    </Link>
-                  </div>
-                  <span className="genre-label">{book.genre}</span>
-                  <Link
-                    to="/books/$bookId"
-                    params={{ bookId: bookSlug(book) }}
-                    className="book-title"
-                  >
-                    {book.title}
-                  </Link>
-                  <p className="community-author">
-                    {t("community.author")}: {book.author}
-                  </p>
-                  <p className="community-desc">{book.description}</p>
-                </article>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <section id="collection" className="page-width collection-section">
-          <div className="collection-heading">
-            <div>
-              <div className="eyebrow section-eyebrow">{t("collection.eyebrow")}</div>
-              <h2>
-                {t("collection.title")} <span>{formatNumber(books.length, lang)}</span>
-              </h2>
-            </div>
-            <div className="collection-views">
-              <Button
-                variant="ghost"
-                className={view === "collection" ? "view-active" : ""}
-                onClick={() => setView("collection")}
-              >
-                <BookOpen /> {t("collection.all")}
-              </Button>
-              <Button
-                variant="ghost"
-                className={view === "saved" ? "view-active" : ""}
-                onClick={() => setView("saved")}
-              >
-                <Bookmark /> {t("collection.saved")}{" "}
-                {saved.length > 0 && <span>{formatNumber(saved.length, lang)}</span>}
-              </Button>
+        <section className="bk-sections">
+          <div className="bk-wrap">
+            <div className="bk-sections-grid">
+              <a className="bk-section-card" href="#stories">
+                <small>01</small>
+                <h3>{t("stories.title")}</h3>
+                <p>{t("sections.stories.body")}</p>
+                <footer>
+                  {t("sections.open")}
+                  <ArrowRight />
+                </footer>
+              </a>
+              <Link className="bk-section-card" to="/poems">
+                <small>02</small>
+                <h3>{t("poems.title")}</h3>
+                <p>{t("sections.poems.body")}</p>
+                <footer>
+                  {t("sections.open")}
+                  <ArrowRight />
+                </footer>
+              </Link>
+              <Link className="bk-section-card" to="/captions">
+                <small>03</small>
+                <h3>{t("captions.title")}</h3>
+                <p>{t("sections.captions.body")}</p>
+                <footer>
+                  {t("sections.open")}
+                  <ArrowRight />
+                </footer>
+              </Link>
             </div>
           </div>
-          <div className="filter-row">
-            <div className="genre-tabs">
+        </section>
+
+        <section id="stories" className="bk-band">
+          <div className="bk-wrap">
+            <div className="bk-band-head">
+              <div>
+                <div className="bk-eyebrow">{t("stories.eyebrow")}</div>
+                <h2>
+                  {t("stories.title")} <span>{formatNumber(books.length, lang)}</span>
+                </h2>
+              </div>
+              <p className="bk-lede">{t("stories.lede")}</p>
+            </div>
+
+            <div className="bk-chips">
               {genreTabs.map((item) => (
-                <Button
+                <button
                   key={item}
-                  variant="ghost"
+                  type="button"
+                  className="bk-chip"
                   aria-pressed={genre === item}
-                  className={genre === item ? "genre-tab active" : "genre-tab"}
                   onClick={() => setGenre(item)}
                 >
                   {item === "all" ? t("collection.allGenres") : item}
-                </Button>
+                </button>
               ))}
             </div>
-            <div className="search-box">
-              <Search size={17} />
+
+            <div className="bk-search">
+              <Search size={16} />
               <input
                 aria-label={t("collection.search")}
                 placeholder={t("collection.search")}
@@ -242,146 +232,171 @@ function Index() {
                 onChange={(event) => setSearch(event.target.value)}
               />
               {search && (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  aria-label={t("collection.searchClear")}
-                  onClick={() => setSearch("")}
-                >
-                  <X />
-                </Button>
+                <button type="button" aria-label={t("collection.searchClear")} onClick={() => setSearch("")}>
+                  <X size={15} />
+                </button>
               )}
             </div>
-          </div>
-          <div className="collection-summary">
-            <span>
-              {genre === "all" ? t("collection.allGenres") : genre}{" "}
-              <span className="summary-dot">/</span> {formatNumber(visible.length, lang)}
-              {t("collection.count")}
-            </span>
-            <span>
-              {t("collection.status")} <span className="status-dot" />
-            </span>
-          </div>
-          <div className="books-grid">
-            {visible.map((book) => (
-              <article className="book-item" key={book.id}>
-                <div className="book-art">
+
+            <div className="bk-story-grid">
+              {visible.map((book) => (
+                <article className="bk-story" key={book.id}>
                   <Link
                     to="/books/$bookId"
                     params={{ bookId: bookSlug(book) }}
+                    className="bk-story-art"
                     aria-label={`${book.title} ${t("collection.read")}`}
                   >
                     <BookCover book={book} />
                   </Link>
-                  <Button
-                    variant="secondary"
-                    size="icon"
-                    className="save-button"
-                    aria-label={`${book.title} ${
-                      saved.includes(book.id) ? t("collection.unsave") : t("collection.save")
-                    }`}
-                    title={t("collection.saved")}
-                    onClick={() =>
-                      setSaved((current) =>
-                        current.includes(book.id)
-                          ? current.filter((id) => id !== book.id)
-                          : [...current, book.id],
-                      )
-                    }
-                  >
-                    {saved.includes(book.id) ? <Check /> : <Bookmark />}
-                  </Button>
-                </div>
-                <div className="book-meta">
-                  <span className="genre-label">{book.genre}</span>
-                  <span>{book.author ?? t("collection.novel")}</span>
-                </div>
-                <Link
-                  to="/books/$bookId"
-                  params={{ bookId: bookSlug(book) }}
-                  className="book-title"
-                >
-                  {book.title}
-                </Link>
-                <p className="book-subtitle">{book.subtitle}</p>
-                <div className="book-bottom">
-                  <span>
-                    {formatNumber(book.chapterCount, lang)}
-                    {t("collection.chapters")}
-                  </span>
+                  <div className="bk-story-meta">
+                    <b>{book.genre}</b>
+                    <span>
+                      {formatNumber(book.chapterCount, lang)}
+                      {t("collection.chapters")}
+                    </span>
+                  </div>
                   <Link
                     to="/books/$bookId"
                     params={{ bookId: bookSlug(book) }}
-                    aria-label={`${book.title} ${t("collection.read")}`}
+                    className="bk-story-title"
                   >
-                    <ArrowRight size={16} />
+                    {book.title}
                   </Link>
-                </div>
-              </article>
-            ))}
-          </div>
-          {!visible.length && (
-            <div className="empty-library">
-              {online?.state === "loading" ? (
-                <div className="online-search" role="status" aria-live="polite">
-                  <div className="online-orbit" aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                  </div>
-                  <h3>{t("online.loading")}</h3>
-                  <p>“{online.query}”</p>
-                </div>
-              ) : (
-                <>
-                  <BookOpen size={36} />
-                  <h3>
-                    {view === "saved"
-                      ? t("collection.empty.saved")
-                      : online?.state === "error"
-                        ? online.message || t("online.notFound")
-                        : t("collection.empty.search")}
-                  </h3>
-                </>
-              )}
-              <Button
-                variant="outline"
-                onClick={() => {
-                  setSearch("");
-                  setGenre("all");
-                  setView("collection");
-                }}
-              >
-                {t("collection.empty.cta")} <ArrowRight />
-              </Button>
+                  <p className="bk-story-sub">{book.subtitle}</p>
+                </article>
+              ))}
             </div>
-          )}
+
+            {!visible.length && (
+              <div className="bk-empty">
+                <BookOpen size={30} />
+                <p>
+                  {online?.state === "loading"
+                    ? `${t("online.loading")} “${online.query}”`
+                    : online?.state === "error"
+                      ? online.message || t("online.notFound")
+                      : t("collection.empty.search")}
+                </p>
+                <button
+                  type="button"
+                  className="bk-btn bk-btn-ghost"
+                  onClick={() => {
+                    setSearch("");
+                    setGenre("all");
+                  }}
+                >
+                  {t("collection.empty.cta")} <ArrowRight />
+                </button>
+              </div>
+            )}
+          </div>
         </section>
 
-        <section className="page-width contribute-section">
-          <div className="contribute-card">
-            <Users size={26} />
+        <section id="poems" className="bk-band">
+          <div className="bk-wrap">
+            <div className="bk-band-head">
+              <div>
+                <div className="bk-eyebrow">{t("poems.eyebrow")}</div>
+                <h2>
+                  {t("poems.title")} <span>{formatNumber(poems.length, lang)}</span>
+                </h2>
+              </div>
+              <Link className="bk-more" to="/poems">
+                {t("poems.all")} <ArrowRight />
+              </Link>
+            </div>
+
+            <div className="bk-poem-layout">
+              {leadPoem && (
+                <Link className="bk-poem-feature" to="/poems/$poemId" params={{ poemId: leadPoem.slug }}>
+                  <div className="bk-eyebrow">{leadPoem.theme}</div>
+                  <h3>{leadPoem.title}</h3>
+                  <p>
+                    {(leadPoem.stanzas[0] ?? []).map((line, index) => (
+                      <span key={index}>
+                        {line}
+                        <br />
+                      </span>
+                    ))}
+                  </p>
+                  <footer>
+                    <span>{t("poems.read")}</span>
+                    <span>{leadPoem.year}</span>
+                  </footer>
+                </Link>
+              )}
+              <div className="bk-poem-list">
+                {otherPoems.map((poem, index) => (
+                  <Link
+                    key={poem.slug}
+                    className="bk-poem-row"
+                    to="/poems/$poemId"
+                    params={{ poemId: poem.slug }}
+                  >
+                    <span>{String(index + 2).padStart(2, "0")}</span>
+                    <strong>{poem.title}</strong>
+                    <em>{poem.theme}</em>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="captions" className="bk-band">
+          <div className="bk-wrap">
+            <div className="bk-band-head">
+              <div>
+                <div className="bk-eyebrow">{t("captions.eyebrow")}</div>
+                <h2>
+                  {t("captions.title")} <span>{formatNumber(captions.length, lang)}</span>
+                </h2>
+              </div>
+              <Link className="bk-more" to="/captions">
+                {t("captions.all")} <ArrowRight />
+              </Link>
+            </div>
+
+            <div className="bk-caption-grid">
+              {leadCaptions.map((caption) => (
+                <Link
+                  key={caption.slug}
+                  className="bk-caption"
+                  to="/captions/$captionId"
+                  params={{ captionId: caption.slug }}
+                >
+                  <p>{caption.text}</p>
+                  <footer>
+                    {caption.tags.slice(0, 3).map((tag) => (
+                      <span className="bk-tag" key={tag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </footer>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className="bk-wrap">
+          <div className="bk-contribute">
             <div>
               <h3>{t("community.title")}</h3>
               <p>{t("community.body")}</p>
             </div>
             <a
-              className="contribute-link"
-              href="https://github.com/ZYRAXON-AI/lore-crafter-delight/tree/main/pdf-library"
+              href="https://github.com/onelpawarai-X/lore-crafter-delight/tree/main/pdf-library"
               target="_blank"
               rel="noreferrer"
             >
               {t("community.cta")} <ArrowRight size={16} />
             </a>
           </div>
-        </section>
+        </div>
       </main>
-      <footer className="page-width library-footer">
-        <span className="footer-brand">বইকথা.</span>
-        <span>{t("footer.note")}</span>
-        <span>{t("footer.tag")}</span>
-      </footer>
-    </>
+      <SiteFooter />
+    </div>
   );
 }

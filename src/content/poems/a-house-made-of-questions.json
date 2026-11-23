@@ -1,0 +1,25 @@
+{
+  "order": 6,
+  "slug": "a-house-made-of-questions",
+  "title": "A House Made of Questions",
+  "theme": "Home",
+  "year": "2026",
+  "stanzas": [
+    [
+      "Who taught you to be quiet?",
+      "The same person who taught me to listen."
+    ],
+    [
+      "Where do you go when the door is loud?",
+      "To the roof, where the sky does not ask twice."
+    ],
+    [
+      "What will you build with the answers?",
+      "A window, at least. A window first."
+    ],
+    [
+      "And if no one comes in?",
+      "Then the light will, and that is enough to start."
+    ]
+  ]
+}
