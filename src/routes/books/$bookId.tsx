@@ -17,7 +17,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { BookCover } from "@/components/book-cover";
 import { ChapterListener } from "@/components/chapter-listener";
-import { LibraryHeader } from "@/components/library-header";
+import { SiteHeader } from "@/components/site-header";
 import { genreClass, type Book } from "@/lib/books";
 import { formatNumber, useLanguage } from "@/lib/i18n";
 import { downloadHtml, downloadTxt, printBook } from "@/lib/export-book";
@@ -77,8 +77,8 @@ function Reader() {
   };
   if (!chapter) {
     return (
-      <div className={`reader-page ${genreClass(book.genre)}`}>
-        <LibraryHeader />
+      <div className={`bk-page reader-page ${genreClass(book.genre)}`}>
+        <SiteHeader />
         <div className="page-width reader-toolbar">
           <Button asChild variant="ghost">
             <Link to="/">
@@ -104,8 +104,8 @@ function Reader() {
   }
 
   return (
-    <div className={`reader-page ${genreClass(book.genre)}`}>
-      <LibraryHeader />
+    <div className={`bk-page reader-page ${genreClass(book.genre)}`}>
+      <SiteHeader />
       <div className="page-width reader-toolbar">
         <Button asChild variant="ghost">
           <Link to="/">
