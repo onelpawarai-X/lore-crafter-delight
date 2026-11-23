@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3d2f5a"/>
+      <stop offset="1" stop-color="#e0a94a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="512" fill="url(#bg)"/>
+  <circle cx="246" cy="90" r="54" fill="#fff2cf" opacity="0.18"/>
+  <circle cx="60" cy="444" r="86" fill="#000000" opacity="0.13"/>
+  <text x="32" y="150" fill="#f2e7d4" opacity="0.85" font-family="sans-serif" font-size="14">Humour</text>
+  <text x="32" y="250" fill="#ffffff" font-family="serif" font-size="30" font-weight="700">The Quiet</text>
+  <text x="32" y="290" fill="#ffffff" font-family="serif" font-size="30" font-weight="700">Orchestra</text>
+  <rect x="32" y="314" width="72" height="3" fill="#f2e7d4" opacity="0.8"/>
+  <text x="32" y="350" fill="#f2e7d4" opacity="0.85" font-family="sans-serif" font-size="14">বইকথা দৈনিক</text>
+</svg>
