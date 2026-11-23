@@ -1,4 +1,5 @@
 import { Link, useLocation } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
 import { Languages } from "lucide-react";
 import { useLanguage } from "@/lib/i18n";
 
@@ -17,9 +18,23 @@ export function SiteHeader() {
   const { lang, setLang, t } = useLanguage();
   const { pathname } = useLocation();
   const next = lang === "bn" ? "en" : "bn";
+  const [progress, setProgress] = useState(0);
+  const [compact, setCompact] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const root = document.documentElement;
+      const max = root.scrollHeight - root.clientHeight;
+      setProgress(max > 0 ? Math.min(1, root.scrollTop / max) : 0);
+      setCompact(root.scrollTop > 24);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="bk-header">
+    <header className="bk-header" data-compact={compact}>
       <div className="bk-wrap bk-header-inner">
         <Link to="/" className="bk-wordmark" aria-label="বইকথা">
           বইকথা<em>.</em>
@@ -44,6 +59,7 @@ export function SiteHeader() {
           </button>
         </div>
       </div>
+      <div className="bk-progress" style={{ transform: `scaleX(${progress})` }} aria-hidden="true" />
     </header>
   );
 }

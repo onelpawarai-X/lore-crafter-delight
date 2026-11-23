@@ -32,3 +32,5 @@
 - Add a poem by dropping `src/content/poems/<slug>.json` (`title`, `theme`, `year`, `order`, `stanzas: string[][]`, one inner array per stanza); add a caption with `src/content/captions/<slug>.json` (`text`, `context`, `tags`, `order`). `src/lib/poems.ts` and `src/lib/captions.ts` index the folders with `import.meta.glob`, so no registry edit is needed and the slug becomes the URL segment.
 - Poem and caption prose is English by design; only the surrounding interface copy is translated through `src/lib/i18n.tsx`.
 - Public pages use the editorial layer in `src/styles/premium.css` (all classes prefixed `bk-`); the reader and submission UI keep the original rules in `src/styles.css`, so the two systems do not collide.
+- Motion is opt-in through `<Reveal>` (`src/components/reveal.tsx`), which adds `is-in` once the block scrolls into view; every animation is disabled under `prefers-reduced-motion`. Do not animate inside the reader sheet — long-form reading stays still.
+- Story cards carry a `genre-N` class from `genreClass()`; `premium.css` maps each one to an `--accent` used for the meta rule and label, so adding a genre means adding a `.bk-story.genre-N` block.
