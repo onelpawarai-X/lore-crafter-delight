@@ -9,13 +9,14 @@ import {
   splitChapters,
   type CommunityBook,
 } from "./community-parse";
+import { BOOKS_REPO } from "./books-repo";
 
 // Reads submissions live from the pdf-library folder in the repository at
 // request time, so a merged pull request shows up without a rebuild or deploy.
 // Results are cached in memory so repeat visits do not hit the GitHub API.
-const OWNER = process.env["BOOKS_REPO_OWNER"] ?? "zyraxon-X";
-const REPO = process.env["BOOKS_REPO_NAME"] ?? "lore-crafter-delight";
-const BRANCH = process.env["BOOKS_REPO_BRANCH"] ?? "main";
+const OWNER = BOOKS_REPO.owner;
+const REPO = BOOKS_REPO.name;
+const BRANCH = BOOKS_REPO.branch;
 const FOLDER = "pdf-library";
 const TTL_MS = 5 * 60 * 1000;
 const MAX_FOLDERS = 120;

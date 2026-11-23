@@ -4,6 +4,7 @@ import { validateSubmission, SubmissionError } from "@/lib/book-submission";
 import { splitChapters, type CommunityBook } from "@/lib/community-parse";
 import { loadCommunityBooks, rememberBook } from "@/lib/community-books.server";
 import { findOnlineBook } from "@/lib/online-books.server";
+import { BOOKS_REPO } from "@/lib/books-repo";
 
 // Search fallback: when a reader searches for a book the library lacks, this
 // finds it online (Project Gutenberg / Open Library), commits meta.json +
@@ -17,9 +18,9 @@ const Input = z.object({ query: z.string().trim().min(2).max(120) });
 async function commitFiles(files: { path: string; content: string }[], title: string) {
   const token = process.env["GITHUB_TOKEN"];
   if (!token) return { committed: false, reason: "GitHub টোকেন নেই" };
-  const owner = process.env["BOOKS_REPO_OWNER"] ?? "zyraxon-X";
-  const repo = process.env["BOOKS_REPO_NAME"] ?? "lore-crafter-delight";
-  const branch = process.env["BOOKS_REPO_BRANCH"] ?? "main";
+  const owner = BOOKS_REPO.owner;
+  const repo = BOOKS_REPO.name;
+  const branch = BOOKS_REPO.branch;
   const headers = {
     Accept: "application/vnd.github+json",
     Authorization: `Bearer ${token}`,

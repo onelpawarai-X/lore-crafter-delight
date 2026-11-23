@@ -2,7 +2,7 @@
 
 > An animated digital library — 60 full-length novels you can read and listen to.
 
-**Live app**: https://lore-crafter-delight.lovable.app · **Repository**: https://github.com/zyraxon-X/lore-crafter-delight
+**Live app**: https://lore-crafter-delight.lovable.app · **Repository**: https://github.com/onelpawarai-X/lore-crafter-delight
 
 ## 🌍 Read this in your language
 
