@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e2a3d"/>
+      <stop offset="1" stop-color="#6f8fb0"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="512" fill="url(#bg)"/>
+  <circle cx="250" cy="86" r="40" fill="#eaf3fb" opacity="0.22"/>
+  <circle cx="70" cy="220" r="3" fill="#d7e8f5"/>
+  <circle cx="150" cy="180" r="2" fill="#d7e8f5"/>
+  <circle cx="240" cy="250" r="2.5" fill="#d7e8f5"/>
+  <circle cx="100" cy="300" r="2" fill="#d7e8f5"/>
+  <circle cx="58" cy="446" r="86" fill="#000000" opacity="0.14"/>
+  <text x="32" y="160" fill="#dbe8f5" opacity="0.85" font-family="sans-serif" font-size="14">Fantasía</text>
+  <text x="32" y="252" fill="#ffffff" font-family="serif" font-size="28" font-weight="700">El tren de</text>
+  <text x="32" y="292" fill="#ffffff" font-family="serif" font-size="28" font-weight="700">las nubes</text>
+  <rect x="32" y="316" width="72" height="3" fill="#dbe8f5" opacity="0.8"/>
+  <text x="32" y="352" fill="#dbe8f5" opacity="0.85" font-family="sans-serif" font-size="14">বইকথা দৈনিক</text>
+</svg>
