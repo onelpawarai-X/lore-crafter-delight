@@ -41,6 +41,9 @@ export function SiteFooter() {
                 </a>
               </li>
               <li>
+                <Link to="/about">{t("footer.about")}</Link>
+              </li>
+              <li>
                 <a href="https://github.com/onelpawarai-X/lore-crafter-delight" target="_blank" rel="noreferrer">
                   GitHub
                 </a>

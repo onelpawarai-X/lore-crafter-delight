@@ -2,9 +2,10 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpen, Search, Sparkles, X } from "lucide-react";
 import { BookCover } from "@/components/book-cover";
+import { Reveal } from "@/components/reveal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { genres, type BookSummary } from "@/lib/books";
+import { genreClass, genres, type BookSummary } from "@/lib/books";
 import { formatNumber, useLanguage } from "@/lib/i18n";
 import { toBookSummary } from "@/lib/community-to-book";
 import { fetchCommunityBooks } from "@/lib/community-books.server";
@@ -109,6 +110,7 @@ function Index() {
       <SiteHeader />
       <main>
         <section className="bk-hero">
+          <Reveal>
           <div className="bk-wrap bk-hero-grid">
             <div>
               <span className="bk-eyebrow">{t("hero.eyebrow")}</span>
@@ -161,9 +163,11 @@ function Index() {
               </div>
             </div>
           </div>
+          </Reveal>
         </section>
 
         <section className="bk-sections">
+          <Reveal delay={80}>
           <div className="bk-wrap">
             <div className="bk-sections-grid">
               <a className="bk-section-card" href="#stories">
@@ -195,9 +199,11 @@ function Index() {
               </Link>
             </div>
           </div>
+          </Reveal>
         </section>
 
         <section id="stories" className="bk-band">
+          <Reveal>
           <div className="bk-wrap">
             <div className="bk-band-head">
               <div>
@@ -240,7 +246,7 @@ function Index() {
 
             <div className="bk-story-grid">
               {visible.map((book) => (
-                <article className="bk-story" key={book.id}>
+                <article className={`bk-story ${genreClass(book.genre)}`} key={book.id}>
                   <Link
                     to="/books/$bookId"
                     params={{ bookId: bookSlug(book) }}
@@ -291,9 +297,11 @@ function Index() {
               </div>
             )}
           </div>
+          </Reveal>
         </section>
 
         <section id="poems" className="bk-band">
+          <Reveal>
           <div className="bk-wrap">
             <div className="bk-band-head">
               <div>
@@ -342,9 +350,11 @@ function Index() {
               </div>
             </div>
           </div>
+          </Reveal>
         </section>
 
         <section id="captions" className="bk-band">
+          <Reveal>
           <div className="bk-wrap">
             <div className="bk-band-head">
               <div>
@@ -378,9 +388,11 @@ function Index() {
               ))}
             </div>
           </div>
+          </Reveal>
         </section>
 
         <div className="bk-wrap">
+          <Reveal>
           <div className="bk-contribute">
             <div>
               <h3>{t("community.title")}</h3>
@@ -394,6 +406,7 @@ function Index() {
               {t("community.cta")} <ArrowRight size={16} />
             </a>
           </div>
+          </Reveal>
         </div>
       </main>
       <SiteFooter />

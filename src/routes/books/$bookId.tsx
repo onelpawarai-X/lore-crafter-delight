@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -24,6 +24,29 @@ import { downloadHtml, downloadTxt, printBook } from "@/lib/export-book";
 import { toLibraryBook } from "@/lib/community-to-book";
 import { fetchCommunityBooks } from "@/lib/community-books.server";
 import { findBookId, loadBook } from "@/lib/manuscripts";
+
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const root = document.documentElement;
+      const max = root.scrollHeight - root.clientHeight;
+      setProgress(max > 0 ? Math.min(1, root.scrollTop / max) : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <div
+      className="bk-read-progress"
+      style={{ transform: `scaleX(${progress})` }}
+      aria-hidden="true"
+    />
+  );
+}
 
 export const Route = createFileRoute("/books/$bookId")({
   loader: async ({ params }) => {
@@ -79,6 +102,7 @@ function Reader() {
     return (
       <div className={`bk-page reader-page ${genreClass(book.genre)}`}>
         <SiteHeader />
+      <ReadingProgress />
         <div className="page-width reader-toolbar">
           <Button asChild variant="ghost">
             <Link to="/">
@@ -106,6 +130,7 @@ function Reader() {
   return (
     <div className={`bk-page reader-page ${genreClass(book.genre)}`}>
       <SiteHeader />
+      <ReadingProgress />
       <div className="page-width reader-toolbar">
         <Button asChild variant="ghost">
           <Link to="/">

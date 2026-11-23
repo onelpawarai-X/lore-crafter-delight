@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as ApiBooksRouteImport } from './routes/api.books'
 import { Route as ApiFetchBookRouteImport } from './routes/api.fetch-book'
 import { Route as ApiTtsRouteImport } from './routes/api.tts'
@@ -23,6 +24,11 @@ import { Route as ApiCommunityFileSlugFileRouteImport } from './routes/api.commu
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiBooksRoute = ApiBooksRouteImport.update({
@@ -74,6 +80,7 @@ const ApiCommunityFileSlugFileRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/api/books': typeof ApiBooksRoute
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/api/books': typeof ApiBooksRoute
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -99,6 +107,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/api/books': typeof ApiBooksRoute
   '/api/fetch-book': typeof ApiFetchBookRoute
   '/api/tts': typeof ApiTtsRoute
@@ -113,6 +122,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/api/books'
     | '/api/fetch-book'
     | '/api/tts'
@@ -125,6 +135,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/api/books'
     | '/api/fetch-book'
     | '/api/tts'
@@ -137,6 +148,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/api/books'
     | '/api/fetch-book'
     | '/api/tts'
@@ -150,6 +162,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   ApiBooksRoute: typeof ApiBooksRoute
   ApiFetchBookRoute: typeof ApiFetchBookRoute
   ApiTtsRoute: typeof ApiTtsRoute
@@ -168,6 +181,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/books': {
@@ -238,6 +258,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   ApiBooksRoute: ApiBooksRoute,
   ApiFetchBookRoute: ApiFetchBookRoute,
   ApiTtsRoute: ApiTtsRoute,
