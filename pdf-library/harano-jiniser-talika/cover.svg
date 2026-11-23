@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512" role="img" aria-label="হারানো জিনিসের তালিকা">
+  <rect width="320" height="512" fill="#2a2118"/>
+  <rect x="16" y="16" width="288" height="480" fill="none" stroke="#d9b46a" stroke-width="1.5" opacity="0.6"/>
+  <rect x="44" y="86" width="232" height="118" fill="#d9b46a" opacity="0.08"/>
+  <line x1="44" y1="86" x2="276" y2="86" stroke="#d9b46a" stroke-width="1"/>
+  <line x1="44" y1="204" x2="276" y2="204" stroke="#d9b46a" stroke-width="1"/>
+  <text x="160" y="240" font-size="30" fill="#f4e9d2" text-anchor="middle" font-family="'Noto Sans Bengali','Noto Serif Bengali',sans-serif" font-weight="700">হারানো জিনিসের</text>
+  <text x="160" y="284" font-size="30" fill="#f4e9d2" text-anchor="middle" font-family="'Noto Sans Bengali','Noto Serif Bengali',sans-serif" font-weight="700">তালিকা</text>
+  <line x1="96" y1="392" x2="224" y2="392" stroke="#d9b46a" stroke-width="1.2"/>
+  <text x="160" y="424" font-size="15" fill="#f4e9d2" text-anchor="middle" font-family="'Noto Sans Bengali','Noto Sans',sans-serif" opacity="0.9">বইকথা দৈনিক</text>
+  <text x="160" y="466" font-size="12" fill="#f4e9d2" text-anchor="middle" font-family="'Noto Sans',sans-serif" opacity="0.6">বাংলা</text>
+</svg>
