@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="512" viewBox="0 0 320 512" role="img" aria-label="হাওয়া বদলের দিন — বইকথা দৈনিক">
+  <rect width="320" height="512" fill="#10222b"/>
+  <circle cx="160" cy="176" r="86" fill="none" stroke="#7fb2a6" stroke-width="1.2" opacity="0.55"/>
+  <circle cx="160" cy="176" r="58" fill="none" stroke="#7fb2a6" stroke-width="1" opacity="0.4"/>
+  <circle cx="160" cy="176" r="28" fill="none" stroke="#7fb2a6" stroke-width="1" opacity="0.3"/>
+  <line x1="160" y1="176" x2="160" y2="92" stroke="#e8dcc4" stroke-width="2" opacity="0.75"/>
+  <line x1="160" y1="176" x2="232" y2="216" stroke="#e8dcc4" stroke-width="2" opacity="0.75"/>
+  <line x1="160" y1="176" x2="88" y2="216" stroke="#e8dcc4" stroke-width="2" opacity="0.75"/>
+  <circle cx="160" cy="176" r="6" fill="#e8dcc4"/>
+  <text x="160" y="330" text-anchor="middle" font-family="Georgia, 'Noto Serif Bengali', serif" font-size="30" fill="#f3ead8">হাওয়া</text>
+  <text x="160" y="368" text-anchor="middle" font-family="Georgia, 'Noto Serif Bengali', serif" font-size="30" fill="#f3ead8">বদলের দিন</text>
+  <line x1="112" y1="398" x2="208" y2="398" stroke="#7fb2a6" stroke-width="1"/>
+  <text x="160" y="428" text-anchor="middle" font-family="Georgia, serif" font-size="13" letter-spacing="2" fill="#a9c3ba">বইকথা দৈনিক</text>
+  <text x="160" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="10" letter-spacing="3" fill="#6d8d84">গল্প · সামাজিক</text>
+</svg>
