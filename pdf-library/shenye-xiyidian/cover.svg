@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512" role="img" aria-label="深夜洗衣店">
+  <defs>
+    <linearGradient id="night" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111a2e"/>
+      <stop offset="0.6" stop-color="#1b2b45"/>
+      <stop offset="1" stop-color="#0a1220"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="512" fill="url(#night)"/>
+  <g opacity="0.5" fill="#f2e6c8">
+    <circle cx="52" cy="72" r="1.6"/>
+    <circle cx="96" cy="44" r="1.1"/>
+    <circle cx="240" cy="66" r="1.4"/>
+    <circle cx="286" cy="110" r="1"/>
+    <circle cx="268" cy="38" r="1.2"/>
+    <circle cx="150" cy="58" r="1"/>
+  </g>
+  <g stroke="#e9d9ae" stroke-width="1.2" opacity="0.5" fill="none">
+    <rect x="96" y="352" width="128" height="112" rx="6"/>
+    <circle cx="160" cy="408" r="34"/>
+    <path d="M126 408 h68"/>
+  </g>
+  <text x="160" y="196" text-anchor="middle" font-family="'Noto Serif CJK SC', 'Songti SC', serif" font-size="46" fill="#f4e9cf" letter-spacing="2">深夜洗衣店</text>
+  <line x1="80" y1="238" x2="240" y2="238" stroke="#d9b96b" stroke-width="1"/>
+  <text x="160" y="272" text-anchor="middle" font-family="'Noto Serif CJK SC', 'Songti SC', serif" font-size="16" fill="#cfe0e8" letter-spacing="3">周四的硬币，洗不掉的蓝</text>
+  <text x="160" y="486" text-anchor="middle" font-family="'Noto Sans Bengali', 'Nirmala UI', sans-serif" font-size="15" fill="#cfe3dd" letter-spacing="1">বইকথা দৈনিক</text>
+</svg>
