@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="512" viewBox="0 0 320 512" role="img" aria-label="El cine de verano">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1d2e"/>
+      <stop offset="0.55" stop-color="#123049"/>
+      <stop offset="1" stop-color="#0a2233"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#ffe9b8" stop-opacity="0.95"/>
+      <stop offset="0.7" stop-color="#f4c877" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#f4c877" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff4d6"/>
+      <stop offset="1" stop-color="#f2cf8e"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="320" height="512" fill="url(#sky)"/>
+
+  <g fill="#ffffff" opacity="0.75">
+    <circle cx="34" cy="46" r="1.4"/>
+    <circle cx="78" cy="30" r="1"/>
+    <circle cx="126" cy="58" r="1.6"/>
+    <circle cx="196" cy="34" r="1.1"/>
+    <circle cx="248" cy="62" r="1.5"/>
+    <circle cx="286" cy="40" r="1"/>
+    <circle cx="58" cy="96" r="1"/>
+    <circle cx="270" cy="108" r="1.2"/>
+    <circle cx="164" cy="86" r="0.9"/>
+  </g>
+
+  <ellipse cx="160" cy="196" rx="140" ry="96" fill="url(#glow)"/>
+  <rect x="64" y="140" width="192" height="112" rx="3" fill="url(#screen)"/>
+  <rect x="64" y="140" width="192" height="112" rx="3" fill="none" stroke="#e9c47e" stroke-width="2"/>
+
+  <g fill="#0a1a26" opacity="0.9">
+    <rect x="86" y="206" width="14" height="18" rx="2"/>
+    <rect x="118" y="206" width="14" height="18" rx="2"/>
+    <rect x="150" y="206" width="14" height="18" rx="2"/>
+    <rect x="182" y="206" width="14" height="18" rx="2"/>
+    <rect x="214" y="206" width="14" height="18" rx="2"/>
+  </g>
+  <rect x="70" y="224" width="180" height="4" fill="#0a1a26" opacity="0.85"/>
+
+  <g fill="#0c1a24">
+    <path d="M0 300 C40 288 80 300 120 296 C170 290 220 302 270 296 C292 293 308 296 320 298 L320 512 L0 512 Z" opacity="0.55"/>
+  </g>
+
+  <text x="160" y="360" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#f6e6c4" letter-spacing="0.5">El cine</text>
+  <text x="160" y="396" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" fill="#f6e6c4" letter-spacing="0.5">de verano</text>
+
+  <line x1="96" y1="424" x2="224" y2="424" stroke="#c9a86a" stroke-width="1.4"/>
+
+  <text x="160" y="456" text-anchor="middle" font-family="'Noto Sans Bengali', 'Noto Sans', sans-serif" font-size="16" fill="#d8c39a">বইকথা দৈনিক</text>
+</svg>
