@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512" role="img" aria-label="पेड़ पर बसा स्टेशन">
+  <defs>
+    <linearGradient id="evening" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#20303a"/>
+      <stop offset="0.55" stop-color="#3a4a44"/>
+      <stop offset="1" stop-color="#161f24"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="512" fill="url(#evening)"/>
+  <g fill="none" stroke="#8fae8b" stroke-width="3">
+    <path d="M160 300 v96"/>
+    <path d="M160 320 q-52 -10 -62 -58"/>
+    <path d="M160 320 q52 -10 62 -58"/>
+    <path d="M160 292 q-34 -14 -38 -52"/>
+    <path d="M160 292 q34 -14 38 -52"/>
+  </g>
+  <g fill="#6f9c74" opacity="0.85">
+    <ellipse cx="120" cy="230" rx="46" ry="30"/>
+    <ellipse cx="200" cy="232" rx="44" ry="28"/>
+    <ellipse cx="160" cy="204" rx="52" ry="34"/>
+  </g>
+  <g>
+    <rect x="128" y="296" width="64" height="12" rx="2" fill="#e6d6ae"/>
+    <rect x="132" y="308" width="4" height="10" fill="#c9b47f"/>
+    <rect x="184" y="308" width="4" height="10" fill="#c9b47f"/>
+    <circle cx="196" cy="286" r="7" fill="#ffd07a"/>
+    <path d="M196 279 v-8" stroke="#c9b47f" stroke-width="2"/>
+  </g>
+  <g stroke="#8d9aa0" stroke-width="3">
+    <path d="M60 412 h200"/>
+    <path d="M60 428 h200"/>
+  </g>
+  <text x="160" y="86" text-anchor="middle" font-family="'Noto Serif Devanagari', 'Nirmala UI', serif" font-size="26" fill="#f1ece0">पेड़ पर बसा</text>
+  <text x="160" y="122" text-anchor="middle" font-family="'Noto Serif Devanagari', 'Nirmala UI', serif" font-size="30" fill="#f1ece0">स्टेशन</text>
+  <line x1="100" y1="146" x2="220" y2="146" stroke="#d9b96b" stroke-width="1"/>
+  <text x="160" y="472" text-anchor="middle" font-family="'Noto Sans Devanagari', 'Nirmala UI', sans-serif" font-size="15" fill="#d8e2dc" letter-spacing="1">বইকথা দৈনিক</text>
+</svg>
