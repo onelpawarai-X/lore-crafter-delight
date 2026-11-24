@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512" role="img" aria-label="সাত রঙের ছাতা">
+  <defs>
+    <linearGradient id="sky3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#123047"/>
+      <stop offset="0.6" stop-color="#1d4a5c"/>
+      <stop offset="1" stop-color="#0b1d2a"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="512" fill="url(#sky3)"/>
+  <g transform="translate(160 210)">
+    <path d="M-96 0 A96 96 0 0 1 96 0 Z" fill="#e05a47"/>
+    <path d="M-96 0 A96 96 0 0 1 -68 -68 L0 0 Z" fill="#e8a33d"/>
+    <path d="M-68 -68 A96 96 0 0 1 -26 -92 L0 0 Z" fill="#e8d44d"/>
+    <path d="M-26 -92 A96 96 0 0 1 26 -92 L0 0 Z" fill="#5fae63"/>
+    <path d="M26 -92 A96 96 0 0 1 68 -68 L0 0 Z" fill="#3f7fb5"/>
+    <path d="M68 -68 A96 96 0 0 1 96 0 L0 0 Z" fill="#6a4b8f"/>
+    <path d="M0 0 L0 118" stroke="#d8cdb6" stroke-width="4"/>
+    <path d="M0 118 q14 10 0 22" stroke="#d8cdb6" stroke-width="4" fill="none"/>
+  </g>
+  <g stroke="#bcd8e6" stroke-width="1.4" opacity="0.6">
+    <path d="M60 150 l-8 22"/>
+    <path d="M250 132 l-8 22"/>
+    <path d="M282 200 l-8 22"/>
+    <path d="M38 230 l-8 22"/>
+  </g>
+  <text x="160" y="396" text-anchor="middle" font-family="'Noto Serif Bengali', 'Nirmala UI', serif" font-size="34" fill="#f2ece0">সাত রঙের ছাতা</text>
+  <line x1="92" y1="418" x2="228" y2="418" stroke="#d9b96b" stroke-width="1"/>
+  <text x="160" y="456" text-anchor="middle" font-family="'Noto Sans Bengali', 'Nirmala UI', sans-serif" font-size="15" fill="#cfe0e8" letter-spacing="1">বইকথা দৈনিক</text>
+</svg>
