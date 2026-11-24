@@ -1,0 +1,39 @@
+{
+  "order": 15,
+  "slug": "last-bus-id",
+  "title": "Bus Terakhir",
+  "theme": "Bus",
+  "year": "2026",
+  "stanzas": [
+    [
+      "Jarum jam di terminal sudah lewat sebelas,",
+      "lampu neon berkedip di atas bangku panjang,",
+      "penjual nasi goreng melipat meja lipatnya,",
+      "dan saya masih menghitung mobil yang lewat."
+    ],
+    [
+      "Di seberang jalan warung belum tutup,",
+      "teh manis di gelas kaca beruap tipis,",
+      "bapak pemiliknya menyalakan radio kecil,",
+      "lagu lama yang saya hafal setengah."
+    ],
+    [
+      "Bus terakhir datang tanpa terburu-buru,",
+      "pintunya berderit, kursinya berdebu,",
+      "kondektur menyebut satu nama tempat,",
+      "saya mengangguk meski bukan tujuan saya."
+    ],
+    [
+      "Jendela dibuka, angin membawa bau hujan",
+      "dari sawah yang belum selesai dipanen.",
+      "Di kursi belakang seorang perempuan tidur,",
+      "tasnya dipeluk seperti bantal."
+    ],
+    [
+      "Saya turun di halte yang tidak saya kenal,",
+      "berjalan pulang lewat gang yang gelap,",
+      "biarlah bus itu membawa saya",
+      "ke tempat yang tidak perlu saya sebut."
+    ]
+  ]
+}
