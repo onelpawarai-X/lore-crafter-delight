@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512">
+  <rect width="320" height="512" fill="#0f1b2e"/>
+  <rect x="22" y="22" width="276" height="468" fill="none" stroke="#8fc7e8" stroke-width="1.5"/>
+  <g stroke="#8fc7e8" stroke-width="1.2" fill="none">
+    <circle cx="160" cy="112" r="30"/>
+    <path d="M148 112 q12 -14 24 0 q-12 14 -24 0"/>
+    <line x1="160" y1="142" x2="160" y2="162"/>
+    <path d="M144 162 h32"/>
+    <path d="M150 162 l-6 16 M170 162 l6 16"/>
+    <path d="M118 92 q-10 20 0 40 M202 92 q10 20 0 40"/>
+  </g>
+  <text x="160" y="240" text-anchor="middle" font-family="serif" font-size="23" fill="#e8f1f8">আকাশে</text>
+  <text x="160" y="272" text-anchor="middle" font-family="serif" font-size="23" fill="#e8f1f8">হারানো কণ্ঠ</text>
+  <line x1="84" y1="310" x2="236" y2="310" stroke="#8fc7e8" stroke-width="1"/>
+  <text x="160" y="340" text-anchor="middle" font-family="serif" font-size="12" fill="#9fb8cc">বিজ্ঞান কল্পকাহিনি</text>
+  <text x="160" y="452" text-anchor="middle" font-family="serif" font-size="14" fill="#8fc7e8">বইকথা দৈনিক</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" width="320" height="512">
+  <rect width="320" height="512" fill="#1b2a4a"/>
+  <rect x="22" y="22" width="276" height="468" fill="none" stroke="#e0b56b" stroke-width="1.5"/>
+  <g stroke="#e0b56b" stroke-width="1.2" fill="none">
+    <rect x="120" y="86" width="80" height="56" rx="3"/>
+    <path d="M120 90 L160 120 L200 90"/>
+    <circle cx="160" cy="118" r="3" fill="#e0b56b"/>
+    <path d="M60 170 q100 -18 200 0"/>
+    <path d="M60 178 q100 -14 200 0"/>
+  </g>
+  <text x="160" y="248" text-anchor="middle" font-family="serif" font-size="24" fill="#f2e7d0">ডাকঘরের</text>
+  <text x="160" y="284" text-anchor="middle" font-family="serif" font-size="24" fill="#f2e7d0">শেষ চিঠি</text>
+  <line x1="86" y1="318" x2="234" y2="318" stroke="#e0b56b" stroke-width="1"/>
+  <text x="160" y="348" text-anchor="middle" font-family="serif" font-size="12" fill="#c9b892">অভিযান</text>
+  <text x="160" y="452" text-anchor="middle" font-family="serif" font-size="14" fill="#e0b56b">বইকথা দৈনিক</text>
+</svg>
