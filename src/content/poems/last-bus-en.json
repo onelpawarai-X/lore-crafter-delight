@@ -1,0 +1,39 @@
+{
+  "order": 14,
+  "slug": "last-bus-en",
+  "title": "The Last Bus",
+  "theme": "Bus",
+  "year": "2026",
+  "stanzas": [
+    [
+      "The timetable said 11:40.",
+      "By midnight the glass case had fogged",
+      "and the only other person at the stop",
+      "had folded his jacket into a pillow."
+    ],
+    [
+      "Across the road, a shuttered pharmacy,",
+      "a dog working the bins without hurry,",
+      "and the sea somewhere behind the buildings,",
+      "turning its stones over and over."
+    ],
+    [
+      "The bus came late and half-lit.",
+      "The driver counted coins with one hand",
+      "and let me on without asking,",
+      "as though I had been expected."
+    ],
+    [
+      "I sat where the heater had been.",
+      "The town gave up its streets one by one—",
+      "the chai stall, the tyre shop, the school gate—",
+      "until there was only the road and rain on it."
+    ],
+    [
+      "Someone had scratched two names in the window",
+      "and a date gone soft with weather.",
+      "I put my hand over them the way you cover",
+      "a candle when the wind gets in."
+    ]
+  ]
+}
